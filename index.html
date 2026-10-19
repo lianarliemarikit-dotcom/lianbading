@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Pluffy Bird: Infernal Blaze 🔥</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <!-- Canvas for the game -->
+    <canvas id="game-canvas"></canvas>
+
+    <!-- Top Status Bar HUD -->
+    <div id="hud" class="hud-layer hidden">
+      <div class="hud-left">
+        <div class="score-box">
+          <span class="score-label">SCORE</span>
+          <span id="score-display">0</span>
+        </div>
+        <div class="combo-badge hidden" id="combo-display">x2 COMBO!</div>
+      </div>
+
+      <div class="hud-center">
+        <div class="energy-bar-container">
+          <div class="energy-label">🔥 FIRE POWER</div>
+          <div class="energy-track">
+            <div id="energy-fill" class="energy-fill"></div>
+          </div>
+          <span id="energy-text">READY</span>
+        </div>
+      </div>
+
+      <div class="hud-right">
+        <div class="best-box">
+          <span class="best-label">BEST</span>
+          <span id="best-display">0</span>
+        </div>
+        <button id="btn-audio-toggle" class="icon-btn" title="Toggle Sound">🔊</button>
+      </div>
+    </div>
+
+    <!-- Start / Title Screen Overlay -->
+    <div id="start-screen" class="overlay-screen">
+      <div class="title-container">
+        <div class="flame-glow"></div>
+        <h1 class="game-title">PLUFFY BIRD</h1>
+        <h2 class="game-subtitle">🔥 INFERNAL BLAZE 🔥</h2>
+      </div>
+
+      <div class="bird-hero-preview">
+        <div class="hero-bird-wrapper">
+          <div class="hero-bird-flame"></div>
+          <div class="hero-bird"></div>
+        </div>
+      </div>
+
+      <div class="instructions-panel">
+        <div class="instruction-item">
+          <span class="key-badge">SPACE</span> or <span class="key-badge">CLICK</span> / <span class="key-badge">TAP</span>
+          <p>Flap & Soar with Flame Trail</p>
+        </div>
+        <div class="instruction-item">
+          <span class="key-badge">F</span> or <span class="key-badge">RIGHT CLICK</span> or <span class="key-badge">FIRE BTN</span>
+          <p>Shoot Fiery Blasts to Destroy Obstacles!</p>
+        </div>
+      </div>
+
+      <div class="game-modes">
+        <button id="btn-start" class="glow-button primary-btn">
+          <span>START FLIGHT</span>
+        </button>
+      </div>
+
+      <div class="tips-footer">
+        🔥 Collect Fire Orbs to charge <strong>SUPER INFERNO</strong> rampage mode!
+      </div>
+    </div>
+
+    <!-- Game Over Screen Overlay -->
+    <div id="game-over-screen" class="overlay-screen hidden">
+      <div class="game-over-box">
+        <h2 class="game-over-title">ASHES TO ASHES</h2>
+        <p class="game-over-subtitle">Pluffy's flames were extinguished!</p>
+
+        <div class="score-summary-grid">
+          <div class="summary-card">
+            <span class="summary-label">FINAL SCORE</span>
+            <span id="final-score" class="summary-value">0</span>
+          </div>
+          <div class="summary-card">
+            <span class="summary-label">BEST SCORE</span>
+            <span id="final-best" class="summary-value">0</span>
+          </div>
+          <div class="summary-card">
+            <span class="summary-label">OBSTACLES BLASTED</span>
+            <span id="final-destroyed" class="summary-value">0</span>
+          </div>
+          <div class="summary-card">
+            <span class="summary-label">MEDAL</span>
+            <span id="final-medal" class="summary-value">🥉 Flame</span>
+          </div>
+        </div>
+
+        <div class="game-over-actions">
+          <button id="btn-restart" class="glow-button primary-btn">
+            <span>REIGNITE & TRY AGAIN</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- On-Screen Touch Controls (Visible on mobile/tablets or can be toggled) -->
+    <div id="mobile-controls" class="mobile-controls-layer">
+      <button id="touch-flap-btn" class="touch-action-btn flap-btn">
+        <span class="btn-icon">🕊️</span>
+        <span class="btn-text">FLAP</span>
+      </button>
+      <button id="touch-fire-btn" class="touch-action-btn fire-btn">
+        <span class="btn-icon">🔥</span>
+        <span class="btn-text">FIRE</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="audio.js"></script>
+  <script src="particles.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
